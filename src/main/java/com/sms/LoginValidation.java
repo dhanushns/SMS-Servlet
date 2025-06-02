@@ -33,11 +33,11 @@ public class LoginValidation extends HttpServlet{
         if(validate(username,password)) {
         	HttpSession session = req.getSession();
         	session.setAttribute("username", username);
-        	//req.getRequestDispatcher("/dashboard.jsp").forward(req, res);
+        	res.sendRedirect("./dashboard.jsp");
         }
         else {
         	req.setAttribute("errorMessage", "Invalid username/password");
-        	//req.getRequestDispatcher("/index.jsp").forward(req, res);
+        	req.getRequestDispatcher("/index.jsp").forward(req, res);
         }
 		
 	}

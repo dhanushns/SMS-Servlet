@@ -13,7 +13,7 @@ public class DB {
 	public ResultSet res;
 	private String url = "jdbc:mysql://localhost:3306/sms";
 	private String dbuname = "root";
-	private String dbpass = "root@39";
+	private String dbpass = "root@14";
 	
 	public DB(){
 		try {

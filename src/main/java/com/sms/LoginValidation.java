@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/dashboard")
+@WebServlet("/login")
 public class LoginValidation extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -28,34 +28,16 @@ public class LoginValidation extends HttpServlet{
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         
+        System.out.println(username);
+        
         if(validate(username,password)) {
         	HttpSession session = req.getSession();
         	session.setAttribute("username", username);
-        	DB db = new DB();
-        	db.query("select * from student");
-        	List<Student> studentList = new ArrayList<>();
-			try {
-				while(db.res.next()) {
-					studentList.add(new Student(
-							db.res.getInt("id"),
-							db.res.getString("name"),
-							db.res.getInt("age"),
-							db.res.getInt("rollno"),
-							db.res.getString("department"),
-							db.res.getString("course"),
-							db.res.getInt("score")
-							));
-				}
-				req.setAttribute("students", studentList);
-				System.out.println("==>" + " " + studentList.get(0).getName());
-	        	req.getRequestDispatcher("/dashboard.jsp").forward(req, res);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+        	//req.getRequestDispatcher("/dashboard.jsp").forward(req, res);
         }
         else {
-        	req.setAttribute("login", false);
-        	req.getRequestDispatcher("/index.jsp").forward(req, res);
+        	req.setAttribute("errorMessage", "Invalid username/password");
+        	//req.getRequestDispatcher("/index.jsp").forward(req, res);
         }
 		
 	}

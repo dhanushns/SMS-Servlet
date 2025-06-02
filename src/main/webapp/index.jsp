@@ -9,11 +9,14 @@
 	<div class="login-model">
 	<h2>SMS Admin Login</h2>
 		<div class="model-body">
-			<form id="loginForm" action="dashboard" method="post">
-				<% Boolean login = (Boolean) request.getAttribute("login"); %>
-				<div id="error" class="group err-grp" style="<%= (login != null && !login) ? "display:block;" : "display:none;" %>">
-					<p>Invalid username/password</p>
-				</div>
+			<form id="loginForm" action="login" method="post">
+				<% String errorMessage = (String) request.getAttribute("errorMessage"); %>
+				<% if (errorMessage != null) { %>
+    				<div id="error" class="group err-grp">
+        				<p><%= errorMessage %></p>
+    				</div>
+				<% } %>
+
 				<div class="group g1">
 					<label for="username">Username</label>
 					<input type="text" name="username" required placeholder="username" />

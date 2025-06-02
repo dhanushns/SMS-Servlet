@@ -57,7 +57,7 @@ public class Student {
 		return id;
 	}
 
-	Student(int id, String name, int age, int rollno, String department, String course, int score){
+	public Student(int id, String name, int age, int roll_no, String department, String course, int score){
 		this.id = id;
 		this.name = name;
 		this.course = course;

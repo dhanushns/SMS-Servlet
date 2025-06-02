@@ -10,12 +10,12 @@ public class DB {
 	
 	Connection connection;
 	Statement stmt;
-	ResultSet res;
+	public ResultSet res;
 	private String url = "jdbc:mysql://localhost:3306/sms";
 	private String dbuname = "root";
 	private String dbpass = "root@39";
 	
-	DB(){
+	public DB(){
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			this.connection = DriverManager.getConnection(this.url,this.dbuname,this.dbpass);

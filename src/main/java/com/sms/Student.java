@@ -1,10 +1,10 @@
 package com.sms;
 
 public class Student {
-	
+
 	private String name, course, department;
-	private int id,age,roll_no, score;
-	
+	private int id, age, roll_no, score;
+
 	public String getName() {
 		return name;
 	}
@@ -57,7 +57,7 @@ public class Student {
 		return id;
 	}
 
-	public Student(int id, String name, int age, int roll_no, String department, String course, int score){
+	public Student(int id, String name, int age, int roll_no, String department, String course, int score) {
 		this.id = id;
 		this.name = name;
 		this.course = course;
@@ -66,5 +66,14 @@ public class Student {
 		this.roll_no = roll_no;
 		this.score = score;
 	}
-	
+
+	public Student(String name, int age, int roll_no, String department, String course, int score) {
+		this.name = name;
+		this.course = course;
+		this.department = department;
+		this.age = age;
+		this.roll_no = roll_no;
+		this.score = score;
+	}
+
 }
